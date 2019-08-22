@@ -15,6 +15,7 @@ public class UserCustomer {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_ID")
+    @MapsId
     private User user;
 
     public UserCustomer(String birth_date, String address, String phone_number) {

@@ -11,8 +11,10 @@ public class UserAdmin {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long admin_ID;
 
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_ID")
+    @MapsId
     private User user;
 
     private String permission;

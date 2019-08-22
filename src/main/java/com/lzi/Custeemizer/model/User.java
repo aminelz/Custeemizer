@@ -1,11 +1,9 @@
 package com.lzi.Custeemizer.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="user")
 public class User {
 
     public User(String email, String password, String first_name, String last_name, Boolean admin) {
@@ -19,6 +17,9 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long user_ID;
+
+    private String email, password, first_name, last_name;
+    private Boolean admin;
 
     public String getEmail() {
         return email;
@@ -59,9 +60,5 @@ public class User {
     public void setAdmin(Boolean admin) {
         this.admin = admin;
     }
-
-    private String email, password, first_name, last_name;
-    private Boolean admin;
-
 
 }

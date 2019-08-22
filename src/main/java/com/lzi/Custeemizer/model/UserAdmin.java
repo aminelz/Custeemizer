@@ -15,11 +15,11 @@ public class UserAdmin {
     @JoinColumn(name = "user_ID")
     private User user;
 
+    private String permission;
+
     public UserAdmin(String permission) {
         this.permission = permission;
     }
-
-    private String permission;
 
     public String getPermission() {
         return permission;

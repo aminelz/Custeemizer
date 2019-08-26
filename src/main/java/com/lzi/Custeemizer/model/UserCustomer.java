@@ -3,25 +3,26 @@ package com.lzi.Custeemizer.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="customer")
+@Entity //Defines that class will be maped to table (JPA)
+@Table(name="customer") //Defines class as Table and names it "customer" to avoid it inheriting the class name
 public class UserCustomer {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Id //Indicates that the next attribute will be used as primary key for the table
+    @GeneratedValue(strategy= GenerationType.AUTO) //Generates a unique value for our attribute
     private long customer_ID;
 
     private String birth_date, address, phone_number;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_ID")
-    @MapsId
-    private User user;
+    @OneToOne(fetch = FetchType.LAZY) //CascadeType.ALL means that if UserCustomer is deleted, User is as well.
+    @JoinColumn(name = "user_ID") //Defining which column will be used as common key
+    //@MapsId //indicates that both tables will have the same primary key
+    private User user; //Tables to apply relationship with
 
-    public UserCustomer(String birth_date, String address, String phone_number) {
+    public UserCustomer(String birth_date, String address, String phone_number, User user) {
         this.birth_date = birth_date;
         this.address = address;
         this.phone_number = phone_number;
+        this.user = user;
     }
 
     public String getBirth_date() {

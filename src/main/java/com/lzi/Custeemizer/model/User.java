@@ -6,6 +6,13 @@ import javax.persistence.*;
 @Table(name="user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long user_ID;
+
+    private String email, password, first_name, last_name;
+    private Boolean admin;
+
     public User(String email, String password, String first_name, String last_name, Boolean admin) {
         this.email = email;
         this.password = password;
@@ -13,13 +20,6 @@ public class User {
         this.last_name = last_name;
         this.admin = admin;
     }
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long user_ID;
-
-    private String email, password, first_name, last_name;
-    private Boolean admin;
 
     public String getEmail() {
         return email;

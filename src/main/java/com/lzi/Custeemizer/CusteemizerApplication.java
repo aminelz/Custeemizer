@@ -1,6 +1,6 @@
 package com.lzi.Custeemizer;
 
-import com.lzi.Custeemizer.model.User;
+import com.lzi.Custeemizer.model.EndUser;
 import com.lzi.Custeemizer.model.UserCustomer;
 import com.lzi.Custeemizer.repository.CustomerRepository;
 import com.lzi.Custeemizer.repository.UserRepository;
@@ -29,19 +29,27 @@ public class CusteemizerApplication {
 	CommandLineRunner runner(){
 		return args -> {
 			//Creating two user entities
-			User user1 = new User("amine.laazizi@gmail.com", "admin",
+			EndUser user1 = new EndUser("amine.laazizi@gmail.com", "admin",
 					"Mohamed Amine", "Laazizi", Boolean.TRUE);
-			User user2 = new User("client@gmail.com", "123456",
+			EndUser user2 = new EndUser("client@gmail.com", "123456",
 					"Client", "Uno", Boolean.FALSE);
+			EndUser user3 = new EndUser("testing", "testing",
+					"testing", "testing", Boolean.FALSE);
 
 			//creating instance of the Customer table
 			UserCustomer customer1 = new UserCustomer("08/08/1997", "Sect 3 Hay riad",
 					"0650286171", user2);
+			UserCustomer customer2 = new UserCustomer("testing", "testing", "testing", user3);
 
 			//Saving all instances to the database using the repos
 			userrepo.save(user1);
 			userrepo.save(user2);
+			userrepo.save(user3);
 			customerrepo.save(customer1);
+			customerrepo.save(customer2);
+
+			customerrepo.delete(customer2);
+			userrepo.delete(user3);
 
 
 		};

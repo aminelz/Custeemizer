@@ -1,10 +1,10 @@
 package com.lzi.Custeemizer.repository;
 
 
-import com.lzi.Custeemizer.model.User;
+import com.lzi.Custeemizer.model.EndUser;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository <User,Long> {
+public interface UserRepository extends CrudRepository <EndUser,Long> {
 
 
 }

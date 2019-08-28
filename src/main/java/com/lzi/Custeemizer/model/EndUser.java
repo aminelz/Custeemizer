@@ -3,8 +3,8 @@ package com.lzi.Custeemizer.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
-public class User {
+@Table(name="enduser")
+public class EndUser {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -13,13 +13,15 @@ public class User {
     private String email, password, first_name, last_name;
     private Boolean admin;
 
-    public User(String email, String password, String first_name, String last_name, Boolean admin) {
+    public EndUser(String email, String password, String first_name, String last_name, Boolean admin) {
         this.email = email;
         this.password = password;
         this.first_name = first_name;
         this.last_name = last_name;
         this.admin = admin;
     }
+
+    public EndUser(){}
 
     public String getEmail() {
         return email;

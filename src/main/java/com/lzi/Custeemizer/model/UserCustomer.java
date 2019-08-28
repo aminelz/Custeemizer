@@ -13,17 +13,18 @@ public class UserCustomer {
 
     private String birth_date, address, phone_number;
 
-    @OneToOne(fetch = FetchType.LAZY) //CascadeType.ALL means that if UserCustomer is deleted, User is as well.
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY) //CascadeType.ALL means that if UserCustomer is deleted, User is as well.
     @JoinColumn(name = "user_ID") //Defining which column will be used as common key
     //@MapsId //indicates that both tables will have the same primary key
-    private User user; //Tables to apply relationship with
+    private EndUser endUser; //Tables to apply relationship with
 
-    public UserCustomer(String birth_date, String address, String phone_number, User user) {
+    public UserCustomer(String birth_date, String address, String phone_number, EndUser endUser) {
         this.birth_date = birth_date;
         this.address = address;
         this.phone_number = phone_number;
-        this.user = user;
+        this.endUser = endUser;
     }
+    public UserCustomer(){}
 
     public String getBirth_date() {
         return birth_date;
@@ -49,11 +50,11 @@ public class UserCustomer {
         this.phone_number = phone_number;
     }
 
-    public User getUser() {
-        return user;
+    public EndUser getEndUser() {
+        return endUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setEndUser(EndUser endUser) {
+        this.endUser = endUser;
     }
 }

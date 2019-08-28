@@ -1,6 +1,8 @@
 package com.lzi.Custeemizer.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity //Defines that class will be maped to table (JPA)
@@ -14,6 +16,7 @@ public class UserCustomer {
     private String birth_date, address, phone_number;
 
     @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY) //CascadeType.ALL means that if UserCustomer is deleted, User is as well.
+    @JsonIgnore
     @JoinColumn(name = "user_ID") //Defining which column will be used as common key
     //@MapsId //indicates that both tables will have the same primary key
     private EndUser endUser; //Tables to apply relationship with

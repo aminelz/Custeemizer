@@ -48,8 +48,8 @@ public class CusteemizerApplication {
 			customerrepo.save(customer1);
 			customerrepo.save(customer2);
 
-			customerrepo.delete(customer2);
-			userrepo.delete(user3);
+//			customerrepo.delete(customer2);
+//			userrepo.delete(user3);
 
 
 		};

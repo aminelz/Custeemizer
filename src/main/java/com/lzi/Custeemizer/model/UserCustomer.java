@@ -13,7 +13,8 @@ public class UserCustomer {
     @GeneratedValue(strategy= GenerationType.AUTO) //Generates a unique value for our attribute
     private long customer_ID;
 
-    private String birth_date, address, phone_number;
+    private String birth_date;
+    private String phone_number;
 
     @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY) //CascadeType.ALL means that if UserCustomer is deleted, User is as well.
     @JsonIgnore
@@ -21,13 +22,20 @@ public class UserCustomer {
     //@MapsId //indicates that both tables will have the same primary key
     private EndUser endUser; //Tables to apply relationship with
 
-    public UserCustomer(String birth_date, String address, String phone_number, EndUser endUser) {
+    public UserCustomer(String birth_date, String phone_number, EndUser endUser) {
         this.birth_date = birth_date;
-        this.address = address;
         this.phone_number = phone_number;
         this.endUser = endUser;
     }
     public UserCustomer(){}
+
+    public long getCustomer_ID() {
+        return customer_ID;
+    }
+
+    public void setCustomer_ID(long customer_ID) {
+        this.customer_ID = customer_ID;
+    }
 
     public String getBirth_date() {
         return birth_date;
@@ -35,14 +43,6 @@ public class UserCustomer {
 
     public void setBirth_date(String birth_date) {
         this.birth_date = birth_date;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getPhone_number() {

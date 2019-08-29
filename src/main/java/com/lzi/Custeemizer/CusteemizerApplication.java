@@ -37,9 +37,9 @@ public class CusteemizerApplication {
 					"testing", "testing", Boolean.FALSE);
 
 			//creating instance of the Customer table
-			UserCustomer customer1 = new UserCustomer("08/08/1997", "Sect 3 Hay riad",
+			UserCustomer customer1 = new UserCustomer("08/08/1997",
 					"0650286171", user2);
-			UserCustomer customer2 = new UserCustomer("testing", "testing", "testing", user3);
+			UserCustomer customer2 = new UserCustomer("testing", "testing", user3);
 
 			//Saving all instances to the database using the repos
 			userrepo.save(user1);

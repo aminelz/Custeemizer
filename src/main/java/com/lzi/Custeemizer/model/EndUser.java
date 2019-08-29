@@ -23,6 +23,14 @@ public class EndUser {
 
     public EndUser(){}
 
+    public long getUser_ID() {
+        return user_ID;
+    }
+
+    public void setUser_ID(long user_ID) {
+        this.user_ID = user_ID;
+    }
+
     public String getEmail() {
         return email;
     }

@@ -11,11 +11,11 @@ public class Tshirt {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long tshirt_ID;
 
-    private String name, sex, size, color, description;
+    private String name, sex, size, color, description, image_URL;
     private double price;
     private Boolean customized;
 
-    public Tshirt(String name, String sex, String size, String color, String description, double price, Boolean customized) {
+    public Tshirt(String name, String sex, String size, String color, String description, String image_URL, double price, Boolean customized) {
         this.name = name;
         this.sex = sex;
         this.size = size;
@@ -23,6 +23,15 @@ public class Tshirt {
         this.price = price;
         this.customized = customized;
         this.description = description;
+        this.image_URL = image_URL;
+    }
+
+    public String getImage_URL() {
+        return image_URL;
+    }
+
+    public void setImage_URL(String image_URL) {
+        this.image_URL = image_URL;
     }
 
     public long getTshirt_ID() {

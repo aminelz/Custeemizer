@@ -15,8 +15,17 @@ public class Cart {
     private Date creation_time;
     private double Total;
 
-    @OneToMany(mappedBy = "cart")
+    @OneToMany
+    @JoinColumn(name="cartitem_ID")
     private List<CartItem> items;
+
+    public long getCart_ID() {
+        return cart_ID;
+    }
+
+    public void setCart_ID(long cart_ID) {
+        this.cart_ID = cart_ID;
+    }
 
     public List<CartItem> getItems() {
         return items;

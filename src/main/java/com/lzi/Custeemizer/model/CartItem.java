@@ -10,18 +10,23 @@ public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long item_id;
+    private long item_ID;
 
     private int quantity;
-    private double total_price;
 
     @OneToOne
-    @JoinColumn(name = "tshirt")
+    @JoinColumn(name = "tshirt_ID")
     private Tshirt tshirt;
 
-    @ManyToOne
-    @JoinColumn(name="cart")
-    private Cart cart;
+
+    public long getItem_ID() {
+        return item_ID;
+    }
+
+    public void setItem_ID(long item_ID) {
+        this.item_ID = item_ID;
+    }
+
 
     public Tshirt getTshirt() {
         return tshirt;
@@ -40,11 +45,4 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public double getTotal_price() {
-        return total_price;
-    }
-
-    public void setTotal_price(double total_price) {
-        this.total_price = total_price;
-    }
 }

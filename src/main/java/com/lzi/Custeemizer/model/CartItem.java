@@ -16,8 +16,12 @@ public class CartItem {
     private double total_price;
 
     @OneToOne
-    @JoinColumn(name = "tshirt_ID")
+    @JoinColumn(name = "tshirt")
     private Tshirt tshirt;
+
+    @ManyToOne
+    @JoinColumn(name="cart")
+    private Cart cart;
 
     public Tshirt getTshirt() {
         return tshirt;
@@ -30,6 +34,7 @@ public class CartItem {
     public int getQuantity() {
         return quantity;
     }
+
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;

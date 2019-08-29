@@ -11,17 +11,18 @@ public class Tshirt {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long tshirt_ID;
 
-    private String name, sex, size, color;
+    private String name, sex, size, color, description;
     private double price;
     private Boolean customized;
 
-    public Tshirt(String name, String sex, String size, String color, double price, Boolean customized) {
+    public Tshirt(String name, String sex, String size, String color, String description, double price, Boolean customized) {
         this.name = name;
         this.sex = sex;
         this.size = size;
         this.color = color;
         this.price = price;
         this.customized = customized;
+        this.description = description;
     }
 
     public long getTshirt_ID() {
@@ -78,5 +79,13 @@ public class Tshirt {
 
     public void setCustomized(Boolean customized) {
         this.customized = customized;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

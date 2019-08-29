@@ -15,6 +15,18 @@ public class CartItem {
     private int quantity;
     private double total_price;
 
+    @OneToOne
+    @JoinColumn(name = "tshirt_ID")
+    private Tshirt tshirt;
+
+    public Tshirt getTshirt() {
+        return tshirt;
+    }
+
+    public void setTshirt(Tshirt tshirt) {
+        this.tshirt = tshirt;
+    }
+
     public int getQuantity() {
         return quantity;
     }

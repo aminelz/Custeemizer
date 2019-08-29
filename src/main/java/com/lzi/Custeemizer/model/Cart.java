@@ -2,6 +2,7 @@ package com.lzi.Custeemizer.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="cart")
@@ -13,6 +14,17 @@ public class Cart {
 
     private Date creation_time;
     private double Total;
+
+    @OneToMany(mappedBy = "cart")
+    private List<CartItem> items;
+
+    public List<CartItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<CartItem> items) {
+        this.items = items;
+    }
 
     public Date getCreation_time() {
         return creation_time;

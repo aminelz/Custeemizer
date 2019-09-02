@@ -16,8 +16,9 @@ public class Cart {
     private double Total;
 
     @OneToMany
-    @JoinColumn(name="cartitem_ID")
+    //@JoinColumn(name="item_ID")
     private List<CartItem> items;
+
 
     public long getCart_ID() {
         return cart_ID;

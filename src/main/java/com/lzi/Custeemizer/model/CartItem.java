@@ -18,6 +18,17 @@ public class CartItem {
     @JoinColumn(name = "tshirt_ID")
     private Tshirt tshirt;
 
+    @ManyToOne
+    @JoinColumn(name="cart_ID")
+    private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public long getItem_ID() {
         return item_ID;

@@ -22,7 +22,7 @@ public interface UserRepository extends CrudRepository <EndUser,Long> {
     // /!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\
     //  /!\ /!\/!\ /!\ /!\ /!\ NEED TO USE NAMED QUERIES /!\ /!\ /!\ /!\/!\ /!\/!\
     // /!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\
-    
+
     //query to get all non-sensitive information of all customers
     @Query(value="SELECT u.first_name, u.last_name, u.email, c.birth_date, c.phone_number," +
             "s.street, s.city, s.zipcode, s.country," +

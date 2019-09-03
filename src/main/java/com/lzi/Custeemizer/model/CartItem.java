@@ -20,14 +20,21 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name="cart_ID")
-    private Cart cart;
+    private Cart mycart;
 
-    public Cart getCart() {
-        return cart;
+    public CartItem(int quantity, Tshirt tshirt, Cart cart) {
+        this.quantity = quantity;
+        this.tshirt = tshirt;
+        this.mycart = cart;
+    }
+    public CartItem(){}
+
+    public Cart getcart() {
+        return mycart;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setcart(Cart cart) {
+        this.mycart = cart;
     }
 
     public long getItem_ID() {

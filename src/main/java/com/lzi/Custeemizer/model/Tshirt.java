@@ -26,6 +26,8 @@ public class Tshirt {
         this.image_URL = image_URL;
     }
 
+    public Tshirt(){}
+
     public String getImage_URL() {
         return image_URL;
     }

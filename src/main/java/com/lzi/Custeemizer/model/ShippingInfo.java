@@ -24,6 +24,7 @@ public class ShippingInfo {
         this.country = country;
         this.customer = customer;
     }
+    public ShippingInfo(){}
 
     public long getShipping_ID() {
         return shipping_ID;

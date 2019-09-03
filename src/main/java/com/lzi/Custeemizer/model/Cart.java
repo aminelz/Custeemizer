@@ -1,7 +1,7 @@
 package com.lzi.Custeemizer.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;;
 import java.util.List;
 
 @Entity
@@ -12,13 +12,18 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long cart_ID;
 
-    private Date creation_time;
+    private LocalDateTime creation_time;
     private double Total;
 
-    @OneToMany
+    @OneToMany(mappedBy = "mycart")
     //@JoinColumn(name="item_ID")
     private List<CartItem> items;
 
+    public Cart(LocalDateTime creation_time, double total) {
+        this.creation_time = creation_time;
+        Total = total;
+    }
+    public Cart(){}
 
     public long getCart_ID() {
         return cart_ID;
@@ -36,11 +41,11 @@ public class Cart {
         this.items = items;
     }
 
-    public Date getCreation_time() {
+    public LocalDateTime getCreation_time() {
         return creation_time;
     }
 
-    public void setCreation_time(Date creation_time) {
+    public void setCreation_time(LocalDateTime creation_time) {
         this.creation_time = creation_time;
     }
 

@@ -16,7 +16,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name="customer_ID")
-    private UserCustomer customer;
+    private UserCustomer mycustomer;
 
     @OneToOne
     @JoinColumn(name="cart_ID")
@@ -25,10 +25,10 @@ public class Order {
     public Order(String processed, double total_price, UserCustomer customer, Cart cart) {
         this.processed = processed;
         this.total_price = total_price;
-        this.customer = customer;
+        this.mycustomer = customer;
         this.cart = cart;
     }
-
+    public Order(){}
 
     public Cart getCart() {
         return cart;
@@ -63,11 +63,11 @@ public class Order {
     }
 
     public UserCustomer getCustomer() {
-        return customer;
+        return mycustomer;
     }
 
     public void setCustomer(UserCustomer customer) {
-        this.customer = customer;
+        this.mycustomer = customer;
     }
 }
 

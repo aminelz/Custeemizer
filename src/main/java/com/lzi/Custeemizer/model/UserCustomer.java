@@ -24,14 +24,14 @@ public class UserCustomer {
     private EndUser endUser; //Tables to apply relationship with
 
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name="shipping_ID")
     private ShippingInfo shipping;
 
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "payment_ID")
     private PaymentInfo payment;
 
-    @OneToMany
+    @OneToMany(mappedBy = "mycustomer")
     //@JoinColumn(name="order_ID")
     private List<Order> orders;
 

@@ -25,6 +25,7 @@ public class PaymentInfo {
         this.cc_address = cc_address;
         this.customer = customer;
     }
+    public PaymentInfo(){}
 
     public long getPayment_ID() {
         return payment_ID;

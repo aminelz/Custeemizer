@@ -1,11 +1,9 @@
 package com.lzi.Custeemizer.controller;
 
 import com.lzi.Custeemizer.model.EndUser;
-import com.lzi.Custeemizer.model.UserCustomer;
 import com.lzi.Custeemizer.repository.CustomerRepository;
 import com.lzi.Custeemizer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,7 +38,7 @@ public class CustomerController {
         return userrepo.findUserByCustomer(id);
     }
 
-//    public Iterable<UserCustomer> getCustomers(){
+//    public Iterable<Customer> getCustomers(){
 //        return custrepo.findAll();
 //    }
 

@@ -50,9 +50,9 @@ public class CusteemizerApplication {
 					"Client", "Dos", Boolean.FALSE);
 
 			//creating instance of the Customer table
-			UserCustomer customer1 = new UserCustomer("08/08/1997",
+			Customer customer1 = new Customer("08/08/1997",
 					"0650286171", user2);
-			UserCustomer customer2 = new UserCustomer("03/03/1989", "0537710200", user3);
+			Customer customer2 = new Customer("03/03/1989", "0537710200", user3);
 
 			//creating instance of shipping and payment entities
 			ShippingInfo shippinguser2 = new ShippingInfo("Sect 21 Avenue Annakhil n10", "10100",

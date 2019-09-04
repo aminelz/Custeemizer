@@ -8,9 +8,22 @@ public class EndUser {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
     private long user_ID;
 
-    private String email, password, first_name, last_name;
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @Column(nullable=false)
+    String password;
+
+    @Column(nullable=false)
+    String first_name;
+
+    @Column(nullable=false)
+    String last_name;
+
+    @Column(nullable = false)
     private Boolean admin;
 
     public EndUser(String email, String password, String first_name, String last_name, Boolean admin) {

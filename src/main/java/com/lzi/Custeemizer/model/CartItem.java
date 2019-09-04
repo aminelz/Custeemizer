@@ -10,6 +10,7 @@ public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable=false, updatable = false)
     private long item_ID;
 
     private int quantity;

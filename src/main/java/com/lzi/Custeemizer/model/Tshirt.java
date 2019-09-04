@@ -9,6 +9,7 @@ public class Tshirt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable=false, updatable = false)
     private long tshirt_ID;
 
     private String name, sex, size, color, description, image_URL;

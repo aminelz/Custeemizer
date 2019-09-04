@@ -9,15 +9,16 @@ public class ShippingInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable=false, updatable = false)
     private long shipping_ID;
 
     private String street, zipcode,  city, country;
 
     @OneToOne
     @JoinColumn(name="customer_ID")
-    private UserCustomer customer;
+    private Customer customer;
 
-    public ShippingInfo(String street, String zipcode, String city, String country, UserCustomer customer) {
+    public ShippingInfo(String street, String zipcode, String city, String country, Customer customer) {
         this.street = street;
         this.zipcode = zipcode;
         this.city = city;
@@ -66,11 +67,11 @@ public class ShippingInfo {
         this.country = country;
     }
 
-    public UserCustomer getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(UserCustomer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 }

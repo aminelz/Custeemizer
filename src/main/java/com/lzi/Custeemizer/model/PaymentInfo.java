@@ -9,15 +9,16 @@ public class PaymentInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable=false, updatable = false)
     private long payment_ID;
 
     private String cc_number, cc_firstname, cc_lastname, cc_type, cc_address;
 
     @OneToOne
     @JoinColumn(name="customer_ID")
-    private UserCustomer customer;
+    private Customer customer;
 
-    public PaymentInfo(String cc_number, String cc_firstname, String cc_lastname, String cc_type, String cc_address, UserCustomer customer) {
+    public PaymentInfo(String cc_number, String cc_firstname, String cc_lastname, String cc_type, String cc_address, Customer customer) {
         this.cc_number = cc_number;
         this.cc_firstname = cc_firstname;
         this.cc_lastname = cc_lastname;
@@ -75,11 +76,11 @@ public class PaymentInfo {
         this.cc_address = cc_address;
     }
 
-    public UserCustomer getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(UserCustomer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 }

@@ -8,16 +8,17 @@ import java.util.List;
 
 @Entity //Defines that class will be maped to table (JPA)
 @Table(name="customer") //Defines class as Table and names it "customer" to avoid it inheriting the class name
-public class UserCustomer {
+public class Customer {
 
     @Id //Indicates that the next attribute will be used as primary key for the table
     @GeneratedValue(strategy= GenerationType.AUTO) //Generates a unique value for our attribute
+    @Column(nullable=false, updatable = false)
     private long customer_ID;
 
     private String birth_date;
     private String phone_number;
 
-    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY) //CascadeType.ALL means that if UserCustomer is deleted, User is as well.
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY) //CascadeType.ALL means that if Customer is deleted, User is as well.
     @JsonIgnore
     @JoinColumn(name = "user_ID") //Defining which column will be used as common key
     //@MapsId //indicates that both tables will have the same primary key
@@ -35,12 +36,12 @@ public class UserCustomer {
     //@JoinColumn(name="order_ID")
     private List<Order> orders;
 
-    public UserCustomer(String birth_date, String phone_number, EndUser endUser) {
+    public Customer(String birth_date, String phone_number, EndUser endUser) {
         this.birth_date = birth_date;
         this.phone_number = phone_number;
         this.endUser = endUser;
     }
-    public UserCustomer(){}
+    public Customer(){}
 
     public ShippingInfo getShipping() {
         return shipping;

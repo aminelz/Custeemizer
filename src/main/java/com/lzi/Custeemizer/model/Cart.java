@@ -10,6 +10,7 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable=false, updatable = false)
     private long cart_ID;
 
     private LocalDateTime creation_time;

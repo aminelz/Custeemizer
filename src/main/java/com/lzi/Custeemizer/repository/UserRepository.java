@@ -2,11 +2,8 @@ package com.lzi.Custeemizer.repository;
 
 
 import com.lzi.Custeemizer.model.EndUser;
-import com.lzi.Custeemizer.model.UserCustomer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -35,6 +32,8 @@ public interface UserRepository extends CrudRepository <EndUser,Long> {
     @Query(value="SELECT u.last_name, u.first_name, u.email, c.birth_date, c.phone_number FROM customer c " +
             "JOIN enduser u ON u.user_ID = c.user_ID WHERE c.customer_ID = ?1  ", nativeQuery = true)
     public List<Object[]> findUserByCustomer(long customer_ID);
+
+    EndUser findByEmail(String email);
 
 
 

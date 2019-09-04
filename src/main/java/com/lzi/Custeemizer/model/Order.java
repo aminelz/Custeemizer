@@ -9,6 +9,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable=false, updatable = false)
     private long order_ID;
 
     private String processed;
@@ -16,13 +17,13 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name="customer_ID")
-    private UserCustomer mycustomer;
+    private Customer mycustomer;
 
     @OneToOne
     @JoinColumn(name="cart_ID")
     private Cart cart;
 
-    public Order(String processed, double total_price, UserCustomer customer, Cart cart) {
+    public Order(String processed, double total_price, Customer customer, Cart cart) {
         this.processed = processed;
         this.total_price = total_price;
         this.mycustomer = customer;
@@ -62,11 +63,11 @@ public class Order {
         this.total_price = total_price;
     }
 
-    public UserCustomer getCustomer() {
+    public Customer getCustomer() {
         return mycustomer;
     }
 
-    public void setCustomer(UserCustomer customer) {
+    public void setCustomer(Customer customer) {
         this.mycustomer = customer;
     }
 }

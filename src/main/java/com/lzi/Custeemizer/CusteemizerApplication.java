@@ -5,6 +5,7 @@ import com.lzi.Custeemizer.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -42,11 +43,11 @@ public class CusteemizerApplication {
 	CommandLineRunner runner(){
 		return args -> {
 			//Creating two user entities
-			EndUser user1 = new EndUser("amine.laazizi@gmail.com", "admin",
+			EndUser user1 = new EndUser("amine.laazizi@gmail.com", "$2a$10$vnGCVf1BjCv2MtF/GAVjFu0OSBgmT6mdKsXsaPKrOhxC.Ogt3lc66",
 					"Mohamed Amine", "Laazizi", Boolean.TRUE);
-			EndUser user2 = new EndUser("client@gmail.com", "123456",
+			EndUser user2 = new EndUser("client@gmail.com", "$2a$10$vnGCVf1BjCv2MtF/GAVjFu0OSBgmT6mdKsXsaPKrOhxC.Ogt3lc66",
 					"Client", "Uno", Boolean.FALSE);
-			EndUser user3 = new EndUser("client2@gmail.com", "123456",
+			EndUser user3 = new EndUser("client2@gmail.com", "$2a$10$vnGCVf1BjCv2MtF/GAVjFu0OSBgmT6mdKsXsaPKrOhxC.Ogt3lc66",
 					"Client", "Dos", Boolean.FALSE);
 
 			//creating instance of the Customer table

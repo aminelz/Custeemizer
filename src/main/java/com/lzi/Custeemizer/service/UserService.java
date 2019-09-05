@@ -18,7 +18,7 @@ public class UserService implements UserDetailsService {
     {
         EndUser currentUser = userrepo.findByEmail(email);
         UserDetails user = new org.springframework.security.core
-                .userdetails.User(email, currentUser.getPassword()
+                .userdetails.User(email, userrepo.findByEmail(email).getPassword()
                 , true, true, true, true,
                 AuthorityUtils.createAuthorityList(currentUser.getAdmin().toString()));
         return user;

@@ -38,10 +38,6 @@ public class CustomerController {
         return userrepo.findUserByCustomer(id);
     }
 
-    @RequestMapping("/test")
-    public EndUser getUser(){return userrepo.findByEmail("amine.laazizi@gmail.com");}
-
-
 //    public Iterable<Customer> getCustomers(){
 //        return custrepo.findAll();
 //    }

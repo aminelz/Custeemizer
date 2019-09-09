@@ -21,8 +21,4 @@ public class AccountCredentials {
         this.password = password;
     }
 
-    public AccountCredentials(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 }

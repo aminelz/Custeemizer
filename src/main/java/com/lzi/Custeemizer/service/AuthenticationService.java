@@ -33,7 +33,8 @@ public class AuthenticationService {
         if (token != null) {
             String user = Jwts.parser()
                     .setSigningKey(SIGNINGKEY)
-                    .parseClaimsJws(token.replace(PREFIX, ""))
+                    .
+                            parseClaimsJws(token.replace(PREFIX, ""))
                     .getBody()
                     .getSubject();
 

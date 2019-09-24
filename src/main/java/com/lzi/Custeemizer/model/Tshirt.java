@@ -12,7 +12,7 @@ public class Tshirt {
     @Column(nullable=false, updatable = false)
     private long tshirt_ID;
 
-    private String name, sex, size, color, description, image_URL;
+    private String name, sex, size, color, description, image_URL, logo_URL, cust_text;
     private double price;
     private Boolean customized;
 
@@ -99,5 +99,21 @@ public class Tshirt {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLogo_URL() {
+        return logo_URL;
+    }
+
+    public void setLogo_URL(String logo_URL) {
+        this.logo_URL = logo_URL;
+    }
+
+    public String getCust_text() {
+        return cust_text;
+    }
+
+    public void setCust_text(String cust_text) {
+        this.cust_text = cust_text;
     }
 }

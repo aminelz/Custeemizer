@@ -1,15 +1,18 @@
 package com.lzi.Custeemizer.controller;
 
+import com.lzi.Custeemizer.model.Customer;
 import com.lzi.Custeemizer.model.EndUser;
 import com.lzi.Custeemizer.repository.CustomerRepository;
 import com.lzi.Custeemizer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class CustomerController {
 
@@ -28,7 +31,7 @@ public class CustomerController {
         return userrepo.findbyAdmin(true);
     }
 
-    @RequestMapping("/fulllistofcustomers")
+    @RequestMapping("/Customers")
     public List<Object[]> getAllCustomers(){
         return userrepo.findAllCustomers();
     }
@@ -37,6 +40,12 @@ public class CustomerController {
     public List<Object[]> getUserofCustomer(@PathVariable(value="id") Long id){
         return userrepo.findUserByCustomer(id);
     }
+
+    @RequestMapping("/Customers/{id}")
+    public List<Object[]> getCustomerById(@PathVariable(value="id") Long id) {
+        return userrepo.findCustomerById(id);
+    }
+
 
 //    public Iterable<Customer> getCustomers(){
 //        return custrepo.findAll();

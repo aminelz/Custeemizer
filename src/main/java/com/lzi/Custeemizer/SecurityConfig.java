@@ -19,12 +19,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -38,9 +38,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
-//    //SecurityConfig.java
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
+    //SecurityConfig.java
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and().authorizeRequests().anyRequest().permitAll();
+    }
 //        http.cors().and().authorizeRequests()
 //                .antMatchers(HttpMethod.POST, "/login").permitAll()
 //                .anyRequest().authenticated()

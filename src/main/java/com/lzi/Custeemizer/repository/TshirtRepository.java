@@ -17,4 +17,6 @@ public interface TshirtRepository extends CrudRepository<Tshirt,Long> {
 
     @Query(value= "SELECT * FROM tshirt WHERE ?1< price < ?2", nativeQuery=true) //sql query
     public List<Tshirt> findbyPrice(double lower_price, double higher_price);
+
+
 }

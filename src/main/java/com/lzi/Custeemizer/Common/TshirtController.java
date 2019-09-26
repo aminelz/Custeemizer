@@ -1,7 +1,5 @@
-package com.lzi.Custeemizer.controller;
+package com.lzi.Custeemizer.Common;
 
-import com.lzi.Custeemizer.model.Tshirt;
-import com.lzi.Custeemizer.repository.TshirtRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;

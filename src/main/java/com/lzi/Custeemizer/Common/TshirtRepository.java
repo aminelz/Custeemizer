@@ -1,7 +1,6 @@
-package com.lzi.Custeemizer.repository;
+package com.lzi.Custeemizer.Common;
 
-import com.lzi.Custeemizer.model.Cart;
-import com.lzi.Custeemizer.model.Tshirt;
+import com.lzi.Custeemizer.Common.Tshirt;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

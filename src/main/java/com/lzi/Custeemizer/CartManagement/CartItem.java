@@ -1,5 +1,7 @@
-package com.lzi.Custeemizer.model;
+package com.lzi.Custeemizer.CartManagement;
 
+
+import com.lzi.Custeemizer.Common.Tshirt;
 
 import javax.persistence.*;
 

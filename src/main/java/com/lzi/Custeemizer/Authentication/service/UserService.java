@@ -1,7 +1,7 @@
-package com.lzi.Custeemizer.service;
+package com.lzi.Custeemizer.Authentication.service;
 
-import com.lzi.Custeemizer.model.EndUser;
-import com.lzi.Custeemizer.repository.UserRepository;
+import com.lzi.Custeemizer.Authentication.EndUser;
+import com.lzi.Custeemizer.Authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

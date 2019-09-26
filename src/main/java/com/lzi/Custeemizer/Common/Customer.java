@@ -1,7 +1,11 @@
-package com.lzi.Custeemizer.model;
+package com.lzi.Custeemizer.Common;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lzi.Custeemizer.Authentication.EndUser;
+import com.lzi.Custeemizer.OrderManagement.Order;
+import com.lzi.Custeemizer.ProfileManagement.PaymentInfo;
+import com.lzi.Custeemizer.ProfileManagement.ShippingInfo;
 
 import javax.persistence.*;
 import java.util.List;

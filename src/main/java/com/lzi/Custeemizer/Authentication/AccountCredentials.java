@@ -1,4 +1,4 @@
-package com.lzi.Custeemizer.model;
+package com.lzi.Custeemizer.Authentication;
 
 public class AccountCredentials {
 

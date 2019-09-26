@@ -1,6 +1,6 @@
-package com.lzi.Custeemizer.repository;
+package com.lzi.Custeemizer.Common;
 
-import com.lzi.Custeemizer.model.Customer;
+import com.lzi.Custeemizer.Common.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CustomerRepository extends CrudRepository<Customer,Long> {

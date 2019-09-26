@@ -1,11 +1,24 @@
 package com.lzi.Custeemizer;
 
-import com.lzi.Custeemizer.model.*;
-import com.lzi.Custeemizer.repository.*;
+import com.lzi.Custeemizer.Authentication.EndUser;
+import com.lzi.Custeemizer.Authentication.UserRepository;
+import com.lzi.Custeemizer.CartManagement.Cart;
+import com.lzi.Custeemizer.CartManagement.CartItem;
+import com.lzi.Custeemizer.CartManagement.CartItemRepository;
+import com.lzi.Custeemizer.CartManagement.CartRepository;
+import com.lzi.Custeemizer.Common.Customer;
+import com.lzi.Custeemizer.Common.CustomerRepository;
+import com.lzi.Custeemizer.Common.Tshirt;
+import com.lzi.Custeemizer.Common.TshirtRepository;
+import com.lzi.Custeemizer.OrderManagement.Order;
+import com.lzi.Custeemizer.OrderManagement.OrderRepository;
+import com.lzi.Custeemizer.ProfileManagement.PaymentInfo;
+import com.lzi.Custeemizer.ProfileManagement.PaymentRepository;
+import com.lzi.Custeemizer.ProfileManagement.ShippingInfo;
+import com.lzi.Custeemizer.ProfileManagement.ShippingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 

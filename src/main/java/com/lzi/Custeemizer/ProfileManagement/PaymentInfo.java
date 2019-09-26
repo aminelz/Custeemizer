@@ -1,5 +1,7 @@
-package com.lzi.Custeemizer.model;
+package com.lzi.Custeemizer.ProfileManagement;
 
+
+import com.lzi.Custeemizer.Common.Customer;
 
 import javax.persistence.*;
 

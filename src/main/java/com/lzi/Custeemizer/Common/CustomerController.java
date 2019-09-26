@@ -1,9 +1,7 @@
-package com.lzi.Custeemizer.controller;
+package com.lzi.Custeemizer.Common;
 
-import com.lzi.Custeemizer.model.Customer;
-import com.lzi.Custeemizer.model.EndUser;
-import com.lzi.Custeemizer.repository.CustomerRepository;
-import com.lzi.Custeemizer.repository.UserRepository;
+import com.lzi.Custeemizer.Authentication.EndUser;
+import com.lzi.Custeemizer.Authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;

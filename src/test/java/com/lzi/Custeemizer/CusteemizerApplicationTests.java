@@ -2,7 +2,7 @@ package com.lzi.Custeemizer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.lzi.Custeemizer.controller.CustomerController;
+import com.lzi.Custeemizer.Common.CustomerController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

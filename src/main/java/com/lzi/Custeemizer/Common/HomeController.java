@@ -1,4 +1,4 @@
-package com.lzi.Custeemizer.controller;
+package com.lzi.Custeemizer.Common;
 
 
 import org.springframework.web.bind.annotation.RestController;

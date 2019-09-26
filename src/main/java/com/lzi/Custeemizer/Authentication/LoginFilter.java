@@ -1,4 +1,4 @@
-package com.lzi.Custeemizer.filter;
+package com.lzi.Custeemizer.Authentication;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -16,8 +16,7 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lzi.Custeemizer.model.AccountCredentials;
-import com.lzi.Custeemizer.service.AuthenticationService;
+import com.lzi.Custeemizer.Authentication.service.AuthenticationService;
 
 public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 

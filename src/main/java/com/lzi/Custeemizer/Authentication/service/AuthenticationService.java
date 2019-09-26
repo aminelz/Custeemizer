@@ -1,4 +1,4 @@
-package com.lzi.Custeemizer.service;
+package com.lzi.Custeemizer.Authentication.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

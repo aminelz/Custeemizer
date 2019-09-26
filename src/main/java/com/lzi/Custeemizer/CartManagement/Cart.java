@@ -1,4 +1,4 @@
-package com.lzi.Custeemizer.model;
+package com.lzi.Custeemizer.CartManagement;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;;

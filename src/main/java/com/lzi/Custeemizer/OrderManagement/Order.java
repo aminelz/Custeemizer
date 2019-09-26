@@ -1,5 +1,8 @@
-package com.lzi.Custeemizer.model;
+package com.lzi.Custeemizer.OrderManagement;
 
+
+import com.lzi.Custeemizer.CartManagement.Cart;
+import com.lzi.Custeemizer.Common.Customer;
 
 import javax.persistence.*;
 

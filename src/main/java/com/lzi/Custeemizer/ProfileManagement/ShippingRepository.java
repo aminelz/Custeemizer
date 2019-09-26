@@ -1,7 +1,5 @@
-package com.lzi.Custeemizer.repository;
+package com.lzi.Custeemizer.ProfileManagement;
 
-import com.lzi.Custeemizer.model.Cart;
-import com.lzi.Custeemizer.model.ShippingInfo;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ShippingRepository extends CrudRepository<ShippingInfo,Long> {

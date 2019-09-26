@@ -1,7 +1,5 @@
-package com.lzi.Custeemizer.repository;
+package com.lzi.Custeemizer.OrderManagement;
 
-import com.lzi.Custeemizer.model.Cart;
-import com.lzi.Custeemizer.model.Order;
 import org.springframework.data.repository.CrudRepository;
 
 public interface OrderRepository extends CrudRepository<Order,Long> {

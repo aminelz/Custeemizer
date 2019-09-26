@@ -1,10 +1,9 @@
-package com.lzi.Custeemizer.repository;
+package com.lzi.Custeemizer.Authentication;
 
 
-import com.lzi.Custeemizer.model.EndUser;
+import com.lzi.Custeemizer.Authentication.EndUser;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

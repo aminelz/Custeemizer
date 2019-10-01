@@ -1,6 +1,7 @@
 package com.lzi.Custeemizer.OrderManagement;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lzi.Custeemizer.CartManagement.Cart;
 import com.lzi.Custeemizer.Common.Customer;
 

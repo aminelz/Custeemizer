@@ -14,15 +14,15 @@ public class Cart {
     private long cart_ID;
 
     private LocalDateTime creation_time;
-    private double Total;
+    private double total;
 
-    @OneToMany(mappedBy = "mycart")
-    //@JoinColumn(name="item_ID")
-    private List<CartItem> items;
+//    @OneToMany(mappedBy = "mycart")
+//    //@JoinColumn(name="item_ID")
+//    private List<CartItem> items;
 
     public Cart(LocalDateTime creation_time, double total) {
         this.creation_time = creation_time;
-        Total = total;
+        this.total = total;
     }
     public Cart(){}
 
@@ -34,13 +34,13 @@ public class Cart {
         this.cart_ID = cart_ID;
     }
 
-    public List<CartItem> getItems() {
-        return items;
-    }
-
-    public void setItems(List<CartItem> items) {
-        this.items = items;
-    }
+//    public List<CartItem> getItems() {
+//        return items;
+//    }
+//
+//    public void setItems(List<CartItem> items) {
+//        this.items = items;
+//    }
 
     public LocalDateTime getCreation_time() {
         return creation_time;
@@ -51,10 +51,17 @@ public class Cart {
     }
 
     public double getTotal() {
-        return Total;
+        return total;
     }
 
     public void setTotal(double total) {
-        Total = total;
+        this.total = total;
+    }
+    
+    public void ComputeTotalPrice(List<CartItem> items){
+        total = 0;
+        for (CartItem item: items){
+            total += item.getQuantity() * item.getTshirt().getPrice();
+        }
     }
 }

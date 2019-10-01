@@ -23,6 +23,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class CusteemizerApplication {
@@ -107,8 +109,12 @@ public class CusteemizerApplication {
 			Cart cart1 = new Cart(LocalDateTime.now(), 0);
 			CartItem cartItem1 = new CartItem(2, tshirt1, cart1);
 			CartItem cartItem2 = new CartItem(3, tshirt2, cart1);
-			cart1.setTotal(cartItem1.getQuantity()*cartItem1.getTshirt().getPrice());
-			cart1.setTotal(cart1.getTotal()+cartItem2.getQuantity()*cartItem2.getTshirt().getPrice());
+			List<CartItem> cartlist = new ArrayList<>();
+			cartlist.add(cartItem1);
+			cartlist.add(cartItem2);
+			cart1.ComputeTotalPrice(cartlist);
+//			cart1.setTotal(cartItem1.getQuantity()*cartItem1.getTshirt().getPrice());
+//			cart1.setTotal(cart1.getTotal()+cartItem2.getQuantity()*cartItem2.getTshirt().getPrice());
 
 			//Creating instance of Order
 			Order order1 = new Order("Pending_Confirmation", cart1.getTotal(), customer1,cart1);

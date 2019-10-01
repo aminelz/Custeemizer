@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CartRepository extends CrudRepository<Cart,Long> {
 
-    @Query(value="SELECT c.total FROM cart c " +
-            "WHERE c.cart_ID = ?1  ", nativeQuery = true)
-    public Cart findCartById(long cart_ID);
+    @Query(value="SELECT * from cart where cart_id = ?1", nativeQuery = true)
+    public Cart findTotalofCartById(long cart_ID);
+
 }

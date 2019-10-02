@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface OrderRepository extends CrudRepository<Order,Long> {
 
 
-    @Query(value="SELECT * FROM torder", nativeQuery = true)
+    @Query(value="SELECT order_id FROM torder", nativeQuery = true)
     public List<Order> findAllOrders();
 
 

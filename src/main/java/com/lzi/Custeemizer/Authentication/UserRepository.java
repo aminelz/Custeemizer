@@ -13,29 +13,9 @@ public interface UserRepository extends CrudRepository <EndUser,Long> {
     //Finding Admin/Normal Customers One query is is native sql and other is in jpql
 //    @Query("select x from EndUser x where x.admin = ?1 ") //jpql query
 //    List<EndUser> findAdmin(Boolean admin);
+
     @Query(value= "SELECT * FROM enduser WHERE admin = ?1", nativeQuery=true) //sql query
     public List<EndUser> findbyAdmin(Boolean admin);
-
-    // /!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\
-    //  /!\ /!\/!\ /!\ /!\ /!\ NEED TO USE NAMED QUERIES /!\ /!\ /!\ /!\/!\ /!\/!\
-    // /!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\/!\ /!\
-
-    //query to get all non-sensitive information of all customers
-    @Query(value="SELECT c.customer_ID, u.first_name, u.last_name, u.email, c.birth_date, c.phone_number," +
-            "s.street, s.city, s.zipcode, s.country," +
-            "p.cc_type, p.cc_number FROM enduser u JOIN customer c ON u.user_ID = c.user_ID " +
-            "JOIN shipping s ON  c.customer_ID = s.customer_ID " +
-            "JOIN payment p ON c.customer_ID = p.customer_ID",nativeQuery = true)
-    public List<Object[]> findAllCustomers();
-
-    //query to get all non-sensitive information of all customers
-    @Query(value="SELECT u.first_name, u.last_name, u.email, c.birth_date, c.phone_number," +
-            "s.street, s.city, s.zipcode, s.country," +
-            "p.cc_type, p.cc_number FROM enduser u JOIN customer c ON u.user_ID = c.user_ID " +
-            "JOIN shipping s ON  c.customer_ID = s.customer_ID " +
-            "JOIN payment p ON c.customer_ID = p.customer_ID " +
-            "WHERE c.customer_ID = ?1",nativeQuery = true)
-    public List<Object[]> findCustomerById(long id);
 
 
 

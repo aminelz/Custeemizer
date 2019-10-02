@@ -117,7 +117,7 @@ public class CusteemizerApplication {
 //			cart1.setTotal(cart1.getTotal()+cartItem2.getQuantity()*cartItem2.getTshirt().getPrice());
 
 			//Creating instance of Order
-			Order order1 = new Order("Pending_Confirmation", cart1.getTotal(), customer1,cart1);
+			Order order1 = new Order("Pending_Confirmation", cart1.getTotal(), customer1,cart1,LocalDateTime.now());
 
 
 

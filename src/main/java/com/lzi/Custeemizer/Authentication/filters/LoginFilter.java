@@ -1,4 +1,4 @@
-package com.lzi.Custeemizer.Authentication;
+package com.lzi.Custeemizer.Authentication.filters;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lzi.Custeemizer.Authentication.AccountCredentials;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

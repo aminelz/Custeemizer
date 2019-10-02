@@ -1,11 +1,15 @@
 package com.lzi.Custeemizer.CartManagement;
 
+import com.fasterxml.jackson.annotation.*;
+import com.lzi.Custeemizer.OrderManagement.Order;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;;
 import java.util.List;
 
 @Entity
 @Table(name="cart")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class , property = "cart_ID")
 public class Cart {
 
     @Id
@@ -15,6 +19,9 @@ public class Cart {
 
     private LocalDateTime creation_time;
     private double total;
+
+    @OneToOne(mappedBy = "mycart")
+    private Order order;
 
 //    @OneToMany(mappedBy = "mycart")
 //    //@JoinColumn(name="item_ID")

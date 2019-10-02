@@ -1,7 +1,10 @@
 package com.lzi.Custeemizer.Common;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.lzi.Custeemizer.Authentication.EndUser;
 import com.lzi.Custeemizer.OrderManagement.Order;
 import com.lzi.Custeemizer.ProfileManagement.PaymentInfo;
@@ -12,6 +15,7 @@ import java.util.List;
 
 @Entity //Defines that class will be maped to table (JPA)
 @Table(name="customer") //Defines class as Table and names it "customer" to avoid it inheriting the class name
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class , property = "customer_ID")
 public class Customer {
 
     @Id //Indicates that the next attribute will be used as primary key for the table
@@ -26,7 +30,7 @@ public class Customer {
     @JsonIgnore
     @JoinColumn(name = "user_ID") //Defining which column will be used as common key
     //@MapsId //indicates that both tables will have the same primary key
-    private EndUser endUser; //Tables to apply relationship with
+    private EndUser myendUser; //Tables to apply relationship with
 
     @OneToOne
     @JoinColumn(name="shipping_ID")
@@ -40,10 +44,10 @@ public class Customer {
     //@JoinColumn(name="order_ID")
     private List<Order> orders;
 
-    public Customer(String birth_date, String phone_number, EndUser endUser) {
+    public Customer(String birth_date, String phone_number, EndUser myendUser) {
         this.birth_date = birth_date;
         this.phone_number = phone_number;
-        this.endUser = endUser;
+        this.myendUser = myendUser;
     }
     public Customer(){}
 
@@ -95,11 +99,11 @@ public class Customer {
         this.phone_number = phone_number;
     }
 
-    public EndUser getEndUser() {
-        return endUser;
+    public EndUser getMyendUser() {
+        return myendUser;
     }
 
-    public void setEndUser(EndUser endUser) {
-        this.endUser = endUser;
+    public void setMyendUser(EndUser myendUser) {
+        this.myendUser = myendUser;
     }
 }

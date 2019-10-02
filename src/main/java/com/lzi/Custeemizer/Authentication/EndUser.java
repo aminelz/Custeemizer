@@ -1,5 +1,7 @@
 package com.lzi.Custeemizer.Authentication;
 
+import com.lzi.Custeemizer.Common.Customer;
+
 import javax.persistence.*;
 
 @Entity
@@ -25,6 +27,9 @@ public class EndUser {
 
     @Column(nullable = false)
     private Boolean admin;
+
+    @OneToOne(mappedBy = "myendUser")
+    private Customer mycustomer;
 
     public EndUser(String email, String password, String first_name, String last_name, Boolean admin) {
         this.email = email;

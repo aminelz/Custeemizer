@@ -1,6 +1,5 @@
 package com.lzi.Custeemizer.Common;
 
-import com.lzi.Custeemizer.Authentication.EndUser;
 import com.lzi.Custeemizer.Authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,40 +15,24 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository custrepo; //Asking spring to create instance of CustomerRepo to be able to use the given data manipulation methods
-    @Autowired
-    private UserRepository userrepo;
 
-    @RequestMapping("/listofcustomers")
-    public List<EndUser> getCustomers(){
-        return userrepo.findbyAdmin(false);
-    }
-
-    @RequestMapping("/listofadmins")
-    public List<EndUser> getAdmins(){
-        return userrepo.findbyAdmin(true);
-    }
-
-    @RequestMapping("/Customers")
-    public List<Object[]> getAllCustomers(){
-        return userrepo.findAllCustomers();
-    }
-
-    @RequestMapping("/userofcustomer/{id}")
-    public List<Object[]> getUserofCustomer(@PathVariable(value="id") Long id){
-        return userrepo.findUserByCustomer(id);
-    }
-
-    @RequestMapping("/Customers/{id}")
-    public List<Object[]> getCustomerById(@PathVariable(value="id") Long id) {
-        return userrepo.findCustomerById(id);
+    @RequestMapping("/Customerss")
+    public List<Customer> getCustomers(){
+        return custrepo.findCustomers();
     }
 
 
-//    public Iterable<Customer> getCustomers(){
-//        return custrepo.findAll();
+//    @RequestMapping("/Customers")
+//    public List<Object[]> getAllCustomers(){
+//        return custrepo.findAllCustomers();
 //    }
 
-//    @RequestMapping("/listadmins")
+    @RequestMapping("/Customer/{id}")
+    public Customer getCustomerInfo(@PathVariable(value="id") long id){
+        return custrepo.findCustomer(id);
+    }
+
+
 
 
 }

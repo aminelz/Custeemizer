@@ -1,4 +1,4 @@
-package com.lzi.Custeemizer.Authentication;
+package com.lzi.Custeemizer.Authentication.filters;
 
 import java.io.IOException;
 

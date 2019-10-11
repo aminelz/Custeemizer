@@ -26,6 +26,8 @@ public interface UserRepository extends CrudRepository <EndUser,Long> {
 
     EndUser findByEmail(String email);
 
+    @Query(value="SELECT Count(*) from enduser Where email = ?1", nativeQuery = true)
+    public int findemail(String email);
 
 
 

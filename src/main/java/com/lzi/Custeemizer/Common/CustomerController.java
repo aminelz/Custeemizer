@@ -22,7 +22,7 @@ public class CustomerController {
     }
 
 
-//    @RequestMapping("/Customers")
+//    @RequestMapping("/Test")
 //    public List<Object[]> getAllCustomers(){
 //        return custrepo.findAllCustomers();
 //    }

@@ -29,7 +29,8 @@ public interface CustomerRepository extends CrudRepository<Customer,Long> {
 //            "WHERE c.customer_ID = ?1",nativeQuery = true)
 //    public List<Object[]> findCustomerById(long id);
 
-    @Query(value="SELECT * from customer WHERE customer_id  = ?1 ", nativeQuery = true)
+    @Query(value="SELECT * from customer" +
+            " WHERE customer_id  = ?1 ", nativeQuery = true)
     public Customer findCustomer(long id);
 
     @Query(value="SELECT * from customer", nativeQuery = true)

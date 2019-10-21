@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 //<EndUser,Long> Defines that the CRUD repo is for the EndUser Class and that the ID field is of type Long
 public interface UserRepository extends CrudRepository <EndUser,Long> {

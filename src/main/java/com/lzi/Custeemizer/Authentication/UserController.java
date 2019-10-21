@@ -2,12 +2,13 @@ package com.lzi.Custeemizer.Authentication;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -25,14 +26,15 @@ public class UserController {
         return userrepo.findbyAdmin(false);
     }
 
-//    @RequestMapping("/User/{email}")
-//    public String Emailexists(@PathVariable("email") String email){
-//        return "Exists!";
-//    }
-//        if(userrepo.findemail(email) == 0){
-//            return true;
-//        }
-//        else
-//            return false;
-//    }
+    @RequestMapping(value = "/User/{email:.+}/email")
+    public Map<String,Boolean> getUser(@PathVariable(value="email") String email){
+        int count = userrepo.findemail(email);
+        if ( count == 1){
+
+            return Collections.singletonMap("response", true);
+        }
+        else
+        return Collections.singletonMap("response", false);
+    }
+
 }

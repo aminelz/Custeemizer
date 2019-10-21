@@ -19,6 +19,7 @@ import com.lzi.Custeemizer.ProfileManagement.ShippingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -117,7 +118,7 @@ public class CusteemizerApplication {
 //			cart1.setTotal(cart1.getTotal()+cartItem2.getQuantity()*cartItem2.getTshirt().getPrice());
 
 			//Creating instance of Order
-			Order order1 = new Order("Pending_Confirmation", cart1.getTotal(), customer1,cart1,LocalDateTime.now());
+			Order order1 = new Order("Pending Confirmation", cart1.getTotal(), customer1,cart1,LocalDateTime.now());
 
 
 

@@ -1,5 +1,6 @@
 package com.lzi.Custeemizer.Common;
 
+import com.lzi.Custeemizer.Authentication.EndUser;
 import com.lzi.Custeemizer.Common.Customer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -35,5 +36,10 @@ public interface CustomerRepository extends CrudRepository<Customer,Long> {
 
     @Query(value="SELECT * from customer", nativeQuery = true)
     public List<Customer> findCustomers();
+
+
+    @Query(value="SELECT u.* FROM enduser u " +
+            "JOIN customer c ON u.user_ID = c.user_ID WHERE c.customer_ID = ?1 ", nativeQuery = true)
+    public Object[] findUser(long id);
 
 }

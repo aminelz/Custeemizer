@@ -1,5 +1,6 @@
 package com.lzi.Custeemizer.Common;
 
+import com.lzi.Custeemizer.Authentication.EndUser;
 import com.lzi.Custeemizer.Authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,6 +31,11 @@ public class CustomerController {
     @RequestMapping("/Customer/{id}")
     public Customer getCustomerInfo(@PathVariable(value="id") long id){
         return custrepo.findCustomer(id);
+    }
+
+    @RequestMapping("/UserCustomer/{id}")
+    public Object[] getUserofCustomer(@PathVariable(value="id") long id){
+        return custrepo.findUser(id);
     }
 
 

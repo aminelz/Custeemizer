@@ -14,19 +14,33 @@ public class PaymentInfo {
     @Column(nullable=false, updatable = false)
     private long payment_ID;
 
-    private String cc_number, cc_firstname, cc_lastname, cc_type, cc_address;
+    private String cc_number;
+    private String cc_firstname;
+    private String cc_lastname;
+    private String cc_type;
+    private String cc_address;
+    private String cc_expiry;
 
     @OneToOne
     @JoinColumn(name="customer_ID")
     private Customer customer;
 
-    public PaymentInfo(String cc_number, String cc_firstname, String cc_lastname, String cc_type, String cc_address, Customer customer) {
+    public PaymentInfo(String cc_number, String cc_expiry, String cc_firstname, String cc_lastname, String cc_type, String cc_address, Customer customer) {
         this.cc_number = cc_number;
         this.cc_firstname = cc_firstname;
         this.cc_lastname = cc_lastname;
         this.cc_type = cc_type;
         this.cc_address = cc_address;
         this.customer = customer;
+        this.cc_expiry = cc_expiry;
+    }
+    public PaymentInfo(String cc_number, String cc_expiry, String cc_firstname, String cc_lastname, String cc_type, String cc_address) {
+        this.cc_number = cc_number;
+        this.cc_firstname = cc_firstname;
+        this.cc_lastname = cc_lastname;
+        this.cc_type = cc_type;
+        this.cc_address = cc_address;
+        this.cc_expiry = cc_expiry;
     }
     public PaymentInfo(){}
 
@@ -84,5 +98,13 @@ public class PaymentInfo {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public String getCc_expiry() {
+        return cc_expiry;
+    }
+
+    public void setCc_expiry(String cc_expiry) {
+        this.cc_expiry = cc_expiry;
     }
 }

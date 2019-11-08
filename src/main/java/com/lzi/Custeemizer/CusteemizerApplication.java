@@ -74,12 +74,12 @@ public class CusteemizerApplication {
 			//creating instance of shipping and payment entities
 			ShippingInfo shippinguser2 = new ShippingInfo("Sect 21 Avenue Annakhil n10", "10100",
 					"Rabat", "Maroc", customer1);
-			PaymentInfo paymentuser2 = new PaymentInfo("12345678901234", "Client",
+			PaymentInfo paymentuser2 = new PaymentInfo("5234567890123434", "12/23", "Client",
 					"Uno","Visa", "Sect 21 Avenue annakhil n10", customer1);
 
 			ShippingInfo shippinguser3 = new ShippingInfo("Sect 3 Bloc H n3", "10100",
 					"Rabat", "Maroc", customer2);
-			PaymentInfo paymentuser3 = new PaymentInfo("43159712553701", "Client",
+			PaymentInfo paymentuser3 = new PaymentInfo("5215971255370112", "08/21", "Client",
 					"Dos","MasterCard", "Sect 3 Bloc H n3", customer2);
 
 			//creating instance of Tshirts

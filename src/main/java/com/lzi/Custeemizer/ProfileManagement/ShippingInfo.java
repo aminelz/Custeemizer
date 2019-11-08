@@ -27,6 +27,12 @@ public class ShippingInfo {
         this.country = country;
         this.customer = customer;
     }
+    public ShippingInfo(String street, String zipcode, String city, String country) {
+        this.street = street;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.country = country;
+    }
     public ShippingInfo(){}
 
     public long getShipping_ID() {

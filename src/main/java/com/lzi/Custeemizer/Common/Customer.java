@@ -49,6 +49,10 @@ public class Customer {
         this.phone_number = phone_number;
         this.myendUser = myendUser;
     }
+    public Customer(String birth_date, String phone_number) {
+        this.birth_date = birth_date;
+        this.phone_number = phone_number;
+    }
     public Customer(){}
 
     public ShippingInfo getShipping() {

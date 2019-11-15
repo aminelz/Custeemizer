@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class UserController {
@@ -37,6 +34,24 @@ public class UserController {
         return Collections.singletonMap("response", false);
     }
 
-
+    @RequestMapping(method = RequestMethod.POST, value = "/Login")
+    public Map<String,String> login(@RequestBody AccountCredentials accountCredentials){
+        int count = userrepo.findemail(accountCredentials.getEmail());
+        final Map<String, String> returnmap = new HashMap<String,String>();
+        EndUser user = userrepo.getlogin(accountCredentials.getEmail(), accountCredentials.getPassword());
+        if (count == 1){
+            if(user.getAdmin()){
+                returnmap.put("login_status", "Admin");
+            }else{
+                returnmap.put("login_status", "Customer");
+            }
+            returnmap.put("id", String.valueOf(user.getUser_ID()));
+        }
+        else if (count == 0){
+            returnmap.put("login_status", null);
+            returnmap.put("id", null);
+        }
+        return returnmap;
+    }
 
 }

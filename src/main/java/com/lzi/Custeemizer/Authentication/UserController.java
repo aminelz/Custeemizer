@@ -4,6 +4,8 @@ package com.lzi.Custeemizer.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.*;
 
@@ -38,14 +40,25 @@ public class UserController {
     public Map<String,String> login(@RequestBody AccountCredentials accountCredentials){
         int count = userrepo.findemail(accountCredentials.getEmail());
         final Map<String, String> returnmap = new HashMap<String,String>();
-        EndUser user = userrepo.getlogin(accountCredentials.getEmail(), accountCredentials.getPassword());
         if (count == 1){
-            if(user.getAdmin()){
-                returnmap.put("login_status", "Admin");
-            }else{
-                returnmap.put("login_status", "Customer");
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            EndUser user = userrepo.getlogin(accountCredentials.getEmail());
+            System.out.println(user.getPassword());
+            boolean match = passwordEncoder.matches(accountCredentials.getPassword(), user.getPassword());
+            System.out.println(match);
+            if (match == true){
+                if(user.getAdmin()){
+                    returnmap.put("login_status", "Admin");
+                }else{
+                    returnmap.put("login_status", "Customer");
+                }
+                returnmap.put("id", String.valueOf(user.getUser_ID()));
+            } else if(match == false){
+                returnmap.put("login_status", "wrong");
+                returnmap.put("id", null);
             }
-            returnmap.put("id", String.valueOf(user.getUser_ID()));
+
+
         }
         else if (count == 0){
             returnmap.put("login_status", null);

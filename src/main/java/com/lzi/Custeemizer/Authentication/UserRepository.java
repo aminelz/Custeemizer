@@ -30,7 +30,7 @@ public interface UserRepository extends CrudRepository <EndUser,Long> {
     @Query(value="SELECT Count(*) FROM enduser WHERE email = ?1", nativeQuery = true)
     public int findemail(String email);
 
-    @Query(value="SELECT * FROM enduser u WHERE u.email = ?1 AND u.password =?2", nativeQuery = true)
-    public EndUser getlogin(String password, String email);
+    @Query(value="SELECT * FROM enduser u WHERE u.email = ?1", nativeQuery = true)
+    public EndUser getlogin(String email);
 
 }

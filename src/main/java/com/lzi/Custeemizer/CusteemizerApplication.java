@@ -19,7 +19,6 @@ import com.lzi.Custeemizer.ProfileManagement.ShippingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -83,33 +82,33 @@ public class CusteemizerApplication {
 					"Dos","MasterCard", "Sect 3 Bloc H n3", customer2);
 
 			//creating instance of Tshirts
-			Tshirt tshirt1 = new Tshirt("Col V Classique","Homme", "Small", "Blanc",
+			Tshirt tshirt1 = new Tshirt("Col V Classique","Men", "White",
 					"T-shirt simple de couleur blanche avec un col V", "https://asda.scene7.com/is/image/Asda/5057983738821?hei=1800&wid=1354&qlt=85&fmt=pjpg&resmode=sharp&op_usm=1.1,0.5,0,0&defaultimage=default_details_George_rd",
 					99, Boolean.FALSE);
-			Tshirt tshirt2 = new Tshirt("Col V Classique","Homme", "Small", "Noir",
+			Tshirt tshirt2 = new Tshirt("Col V Classique","Men", "Black",
 					"T-shirt simple de couleur noire avec un col V", "https://asda.scene7.com/is/image/Asda/5054924026733?hei=1800&wid=1354&qlt=85&fmt=pjpg&resmode=sharp&op_usm=1.1,0.5,0,0&defaultimage=default_details_George_rd",
 					99, Boolean.FALSE);
 
-			Tshirt tshirt3 = new Tshirt("Col Rond Classique","Homme", "Small", "Rouge",
+			Tshirt tshirt3 = new Tshirt("Col Rond Classique","Men", "Red",
 					"T-shirt simple de couleur rouge avec un col rond", "https://asda.scene7.com/is/image/Asda/5054065447503?hei=686&wid=516&qlt=85&fmt=pjpg&resmode=sharp&op_usm=1.1,0.5,0,0&defaultimage=default_details_George_rd",
 					99, Boolean.FALSE);
 
-			Tshirt tshirt4 = new Tshirt("Col V Classique","Femme", "Small", "Rouge",
+			Tshirt tshirt4 = new Tshirt("Col V Classique","Women", "Red",
 					"T-shirt simple de couleur rouge avec un col V", "https://images-na.ssl-images-amazon.com/images/I/61sDaqRVnAL._UX425_.jpg",
 					99, Boolean.FALSE);
 
-			Tshirt tshirt5 = new Tshirt("Col Rond Classique","Femme", "Small", "Noir",
+			Tshirt tshirt5 = new Tshirt("Col Rond Classique","Women", "Black",
 					"T-shirt simple de couleur noire avec un col rond", "https://cdn.shopify.com/s/files/1/0971/9530/products/PWKZ00444-_K8_1_1024x1024.jpg?v=1504562865",
 					99, Boolean.FALSE);
 
-			Tshirt tshirt6 = new Tshirt("Col Rond Classique","Femme", "Small", "Blanc",
+			Tshirt tshirt6 = new Tshirt("Col Rond Classique","Women", "White",
 					"T-shirt simple de couleur noire avec un col rond", "https://cdn.shopify.com/s/files/1/0407/0829/products/DSC_1720_98d57075-e4ae-452f-9203-ff7fb38f0617_1024x1024.jpg?v=1555576217",
 					99, Boolean.FALSE);
 
 			//Creating instance of Cart and cart item
 			Cart cart1 = new Cart(LocalDateTime.now(), 0);
-			CartItem cartItem1 = new CartItem(2, tshirt1, cart1);
-			CartItem cartItem2 = new CartItem(3, tshirt2, cart1);
+			CartItem cartItem1 = new CartItem(2, "S", tshirt1, cart1);
+			CartItem cartItem2 = new CartItem(3, "M", tshirt2, cart1);
 			List<CartItem> cartlist = new ArrayList<>();
 			cartlist.add(cartItem1);
 			cartlist.add(cartItem2);

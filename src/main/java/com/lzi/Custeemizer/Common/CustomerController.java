@@ -6,7 +6,9 @@ import com.lzi.Custeemizer.ProfileManagement.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -33,9 +35,14 @@ public class CustomerController {
 //        return custrepo.findAllCustomers();
 //    }
 
+    @RequestMapping("/CustomerUser/{id}")
+    public Customer getCustomerInfo2(@PathVariable(value="id") long id){
+        return custrepo.findCustomer(id);
+    }
+
     @RequestMapping("/Customer/{id}")
     public Customer getCustomerInfo(@PathVariable(value="id") long id){
-        return custrepo.findCustomer(id);
+        return custrepo.findCustomerbyUserID(id);
     }
 
     @RequestMapping("/UserCustomer/{id}")
@@ -44,7 +51,7 @@ public class CustomerController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/Register")
-    public void createCustomer(@RequestBody RegistrationForm registrationForm){
+    public Map<String,Long> createCustomer(@RequestBody RegistrationForm registrationForm){
         EndUser newuser = new EndUser(registrationForm.getUser_email(), registrationForm.getUser_password(), registrationForm.getUser_firstname(), registrationForm.getUser_lastname(), Boolean.FALSE);
         userrepo.save(newuser);
         Customer newcustomer = new Customer(registrationForm.getCustomer_birthdate(), registrationForm.getCustomer_phonenumber(), newuser);
@@ -56,6 +63,7 @@ public class CustomerController {
         newcustomer.setPayment(newpayment);
         newcustomer.setShipping(newshipping);
         custrepo.save(newcustomer);
+        return Collections.singletonMap("customer_id", newuser.getUser_ID());
     }
 
 

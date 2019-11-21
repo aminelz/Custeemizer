@@ -12,14 +12,19 @@ public class Tshirt {
     @Column(nullable=false, updatable = false)
     private long tshirt_ID;
 
-    private String name, sex, size, color, description, image_URL, logo_URL, cust_text;
+    private String name;
+    private String sex;
+    private String color;
+    private String description;
+    private String image_URL;
+    private String logo_URL;
+    private String cust_text;
     private double price;
     private Boolean customized;
 
-    public Tshirt(String name, String sex, String size, String color, String description, String image_URL, double price, Boolean customized) {
+    public Tshirt(String name, String sex, String color, String description, String image_URL, double price, Boolean customized) {
         this.name = name;
         this.sex = sex;
-        this.size = size;
         this.color = color;
         this.price = price;
         this.customized = customized;
@@ -59,14 +64,6 @@ public class Tshirt {
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
     }
 
     public String getColor() {

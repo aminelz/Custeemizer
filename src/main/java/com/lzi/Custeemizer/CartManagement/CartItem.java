@@ -16,6 +16,9 @@ public class CartItem {
     private long item_ID;
 
     private int quantity;
+    private String size;
+
+
 
     @OneToOne
     @JoinColumn(name = "tshirt_ID")
@@ -25,10 +28,11 @@ public class CartItem {
     @JoinColumn(name="cart_ID")
     private Cart mycart;
 
-    public CartItem(int quantity, Tshirt tshirt, Cart cart) {
+    public CartItem(int quantity, String size, Tshirt tshirt,  Cart cart) {
         this.quantity = quantity;
         this.tshirt = tshirt;
         this.mycart = cart;
+        this.size = size;
     }
     public CartItem(){}
 
@@ -64,6 +68,14 @@ public class CartItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
 }

@@ -33,4 +33,7 @@ public interface UserRepository extends CrudRepository <EndUser,Long> {
     @Query(value="SELECT * FROM enduser u WHERE u.email = ?1", nativeQuery = true)
     public EndUser getlogin(String email);
 
+    @Query(value="SELECT * FROM enduser u WHERE u.user_ID =?1", nativeQuery = true)
+    public EndUser getUser(long id);
+
 }

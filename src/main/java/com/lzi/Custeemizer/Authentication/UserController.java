@@ -43,9 +43,7 @@ public class UserController {
         if (count == 1){
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             EndUser user = userrepo.getlogin(accountCredentials.getEmail());
-            System.out.println(user.getPassword());
             boolean match = passwordEncoder.matches(accountCredentials.getPassword(), user.getPassword());
-            System.out.println(match);
             if (match == true){
                 if(user.getAdmin()){
                     returnmap.put("login_status", "Admin");
@@ -65,6 +63,11 @@ public class UserController {
             returnmap.put("id", null);
         }
         return returnmap;
+    }
+
+    @RequestMapping("/User/{id}")
+    public EndUser getUser(@PathVariable(value="id") long id){
+        return userrepo.getUser(id);
     }
 
 }

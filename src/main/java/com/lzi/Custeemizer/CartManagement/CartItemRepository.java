@@ -18,5 +18,10 @@ public interface CartItemRepository extends CrudRepository<CartItem,Long> {
             "WHERE c.cart_id =?1",nativeQuery = true)
     public List<CartItem> getAllItems(long id);
 
+    @Query(value="SELECT Count(*) FROM cartitem c WHERE c.cart_ID = ?1", nativeQuery = true)
+    public int findCartCount(long id);
+
+    @Query(value="SELECT i.* FROM cartitem i WHERE i.item_id =?1", nativeQuery = true)
+    public CartItem findItem(long id);
 
 }

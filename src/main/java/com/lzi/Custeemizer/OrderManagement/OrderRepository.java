@@ -16,5 +16,7 @@ public interface OrderRepository extends CrudRepository<Order,Long> {
     @Query(value="SELECT *  FROM torder WHERE customer_id = ?1 ", nativeQuery = true)
     public List<Order> findOrderByCustomer(long id);
 
+    @Query(value="SELECT o.cart_ID FROM torder o WHERE o.order_ID =?1", nativeQuery = true)
+    public long findCartByOrder(long id);
 
 }
